@@ -1,0 +1,29 @@
+namespace Helvion.HelForm.Plugins.HelpDesk
+{
+	public static class PermissionsTable
+	{
+		public const string HelpDesk_Tickets_Read = "helpdesk.tickets.read";
+		public const string HelpDesk_Tickets_Write = "helpdesk.tickets.write";
+
+		public const string HelpDesk_Tickets_All_Read = "helpdesk.tickets.all.read";
+		public const string HelpDesk_Tickets_Company_Write = "helpdesk.tickets.company.write";
+
+		public const string HelpDesk_TicketWork_Read = "helpdesk.tickets.work.read";
+		public const string HelpDesk_TicketWork_InternalRead = "helpdesk.tickets.work.internal.read";
+		public const string HelpDesk_TicketWork_Write = "helpdesk.tickets.work.write";
+
+		public const string HelpDesk_TicketConversation_Read = "helpdesk.tickets.conversation.read";
+		public const string HelpDesk_TicketConversation_Write = "helpdesk.tickets.conversation.write";
+
+		public const string HelpDesk_Tags_Read = "helpdesk.tags.read";
+		public const string HelpDesk_Tags_Write = "helpdesk.tags.write";
+
+		public const string HelpDesk_Categories_Read = "helpdesk.categories.read";
+		public const string HelpDesk_Categories_Write = "helpdesk.categories.write";
+
+		public const string HelpDesk_Priorities_Read = "helpdesk.priorities.read";
+		public const string HelpDesk_Priorities_Write = "helpdesk.priorities.write";
+
+		public const string HelpDesk_Statistics_Read = "helpdesk.statistics.read";
+	}
+}
