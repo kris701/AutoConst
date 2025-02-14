@@ -11,5 +11,7 @@ namespace AutoConst
 
 		[Option('o', "output", Required = false, HelpText = "Path to output resulting files to.")]
 		public string OutPath { get; set; } = "";
+		[Option('m', "merge", Required = false, HelpText = "If const files of the same class name should be merged together.")]
+		public bool Merge { get; set; } = false;
 	}
 }

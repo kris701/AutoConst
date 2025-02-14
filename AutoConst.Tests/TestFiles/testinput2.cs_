@@ -1,0 +1,7 @@
+namespace Helvion.HelForm.Plugins.HelpDesk
+{
+	public static class PermissionsTable
+	{
+		public const string Other = 1234;
+	}
+}

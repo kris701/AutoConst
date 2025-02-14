@@ -42,5 +42,7 @@ export const ImportantStatics = {
 The currently available producers are:
 * `TypeScriptProducer`, to make TS code
 
+You can also use the flag `-m` to "merge" several const files that has the same class name into a single output file.
+This is useful if you need to have some sort of common reference table on the output side.
 
 This package is available as a tool on the [NuGet Package Manager](https://www.nuget.org/packages/AutoConst/), so you can install it by writing `dotnet tool install AutoConst` in a terminal.

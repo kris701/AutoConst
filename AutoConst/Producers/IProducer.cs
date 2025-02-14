@@ -6,6 +6,6 @@ namespace AutoConst.Producers
 	{
 		public string Name { get; }
 		public string Extension { get; }
-		public List<ResultFile> Produce(List<string> files);
+		public List<ResultFile> Produce(List<string> files, bool merge);
 	}
 }

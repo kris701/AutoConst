@@ -42,7 +42,7 @@ namespace AutoConst
 			{
 				ConsoleHelpers.WriteLineColor($"\tExecuting producer {count++} out of {opts.Producers.Count()}", ConsoleColor.DarkGray);
 				var producer = ProducerBuilder.GetProducer(producerName);
-				var newFiles = producer.Produce(constFiles);
+				var newFiles = producer.Produce(constFiles, opts.Merge);
 				foreach (var file in newFiles)
 					File.WriteAllText(Path.Combine(opts.OutPath, $"{file.Name}.{producer.Extension}"), file.Content);
 			}
