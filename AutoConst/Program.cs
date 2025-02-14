@@ -1,8 +1,7 @@
-﻿using CommandLine.Text;
+﻿using AutoConst.Producers;
 using CommandLine;
+using CommandLine.Text;
 using ToolsSharp;
-using System.IO;
-using AutoConst.Producers;
 
 namespace AutoConst
 {
@@ -44,7 +43,7 @@ namespace AutoConst
 				ConsoleHelpers.WriteLineColor($"\tExecuting producer {count++} out of {opts.Producers.Count()}", ConsoleColor.DarkGray);
 				var producer = ProducerBuilder.GetProducer(producerName);
 				var newFiles = producer.Produce(constFiles);
-				foreach(var file in newFiles)
+				foreach (var file in newFiles)
 					File.WriteAllText(Path.Combine(opts.OutPath, $"{file.Name}.{producer.Extension}"), file.Content);
 			}
 		}

@@ -1,10 +1,6 @@
 ﻿using AutoConst.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AutoConst.Producers
 {
@@ -13,16 +9,16 @@ namespace AutoConst.Producers
 		public string Name { get; } = "TypeScriptProducer";
 		public string Extension { get; } = "ts";
 
-		private static Regex _nameRegex = new Regex("class (.*)", RegexOptions.Compiled);
-		private static Regex _constRegex = new Regex("const (.*?);", RegexOptions.Compiled);
-		private static Regex _propertyNameRegex = new Regex(" (.*?)=", RegexOptions.Compiled);
-		private static Regex _propertyValueRegex = new Regex("=(.*)", RegexOptions.Compiled);
+		private static readonly Regex _nameRegex = new Regex("class (.*)", RegexOptions.Compiled);
+		private static readonly Regex _constRegex = new Regex("const (.*?);", RegexOptions.Compiled);
+		private static readonly Regex _propertyNameRegex = new Regex(" (.*?)=", RegexOptions.Compiled);
+		private static readonly Regex _propertyValueRegex = new Regex("=(.*)", RegexOptions.Compiled);
 
 		public List<ResultFile> Produce(List<string> files)
 		{
 			var newFiles = new List<ResultFile>();
 
-			foreach(var file in files)
+			foreach (var file in files)
 			{
 				var fileInfo = new FileInfo(file);
 				var sb = new StringBuilder();
@@ -34,7 +30,7 @@ namespace AutoConst.Producers
 				sb.AppendLine($"export const {nameMatch.Groups[1].Value.Replace("\r", "").Replace("\n", "")} = {{");
 
 				var matches = _constRegex.Matches(text);
-				foreach(Match match in matches)
+				foreach (Match match in matches)
 				{
 					var propNameMatch = _propertyNameRegex.Match(match.Groups[1].Value);
 					var propValueMatch = _propertyValueRegex.Match(match.Groups[1].Value);
