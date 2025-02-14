@@ -4,8 +4,8 @@ namespace AutoConst
 {
 	public class Options
 	{
-		[Option('t', "target", Required = true, HelpText = "Path to search for cs files in.")]
-		public string TargetPath { get; set; } = "";
+		[Option('t', "target", Required = true, HelpText = "Either a set of individual files or paths to search for cs files in.")]
+		public IEnumerable<string> TargetPath { get; set; } = new List<string>();
 		[Option('p', "producers", Required = true, HelpText = "List of producers to make code for.")]
 		public IEnumerable<string> Producers { get; set; } = new List<string>();
 

@@ -17,12 +17,18 @@ namespace AutoConst
 
 		public static void Run(Options opts)
 		{
-			opts.TargetPath = DirectoryHelper.RootPath(opts.TargetPath);
 			opts.OutPath = DirectoryHelper.RootPath(opts.OutPath);
 
 			ConsoleHelpers.WriteColor("Finding cs files...", ConsoleColor.Blue);
-			var files = Directory.GetFiles(opts.TargetPath, "*.cs", SearchOption.AllDirectories);
-			ConsoleHelpers.WriteColor($"\tA total of {files.Length} cs files found.", ConsoleColor.Blue);
+			var files = new List<string>();
+			foreach (var target in opts.TargetPath)
+			{
+				if (target.EndsWith(".cs"))
+					files.Add(target);
+				else
+					files.AddRange(Directory.GetFiles(target, "*.cs", SearchOption.AllDirectories));
+			}
+			ConsoleHelpers.WriteColor($"\tA total of {files.Count} cs files found.", ConsoleColor.Blue);
 			ConsoleHelpers.WriteLineColor("Done!", ConsoleColor.Green);
 
 			ConsoleHelpers.WriteColor("Filtering for const files...", ConsoleColor.Blue);
